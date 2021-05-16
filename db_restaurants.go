@@ -8,6 +8,7 @@ func (p *product) getRestaurant(db *sql.DB) error {
 		p.ID).Scan(&p.Name, &p.Price)
 }
 
+// Update an item
 func (p *product) updateRestaurant(db *sql.DB) error {
 	_, err :=
 		db.Exec("UPDATE products SET name=$1, price=$2 WHERE id=$3",
