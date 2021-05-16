@@ -33,5 +33,5 @@ type Comment struct {
 	Body          string `json:"body"`
 	Rate          int    `json:"rate"`
 	Avg_rate      int    `json:"avg_rate"`
-	restaurant_id int    `json:"restaurant_id"`
+	Restaurant_id int    `json:"restaurant_id"`
 }
