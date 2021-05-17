@@ -69,7 +69,6 @@ func (a *App) newRestaurant(w http.ResponseWriter, r *http.Request) {
 		respondWithError(w, http.StatusInternalServerError, err.Error())
 		return
 	}
-
 	respondWithJSON(w, http.StatusCreated, p)
 }
 

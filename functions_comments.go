@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"strconv"
 
@@ -40,10 +41,10 @@ func (a *App) newComment(w http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
 
 	if err := c.createComment(a.DB); err != nil {
+		fmt.Println(err)
 		respondWithError(w, http.StatusInternalServerError, err.Error())
 		return
 	}
-
 	respondWithJSON(w, http.StatusCreated, c)
 }
 

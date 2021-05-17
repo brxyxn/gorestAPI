@@ -17,11 +17,8 @@ type App struct {
 }
 
 const (
-	host     = "queenie.db.elephantsql.com"
-	port     = "5432"
-	user     = "xisreddd"
-	password = "c3aGVFPauG2BZZUzM5TiuI42dFYW8tSZ"
-	dbname   = "xisreddd"
+	host = "queenie.db.elephantsql.com"
+	port = "5432"
 )
 
 func (a *App) Initialize(user, password, dbname string) {
@@ -61,14 +58,13 @@ func respondWithJSON(w http.ResponseWriter, code int, payload interface{}) {
 }
 
 func (a *App) initializeRoutes() {
-	a.Router.HandleFunc("/api/v1/products/new", a.newRestaurant).Methods("POST")
-	a.Router.HandleFunc("/api/v1/products", a.getRestaurants).Methods("GET")
-	a.Router.HandleFunc("/api/v1/product/{id:[0-9]+}", a.getRestaurant).Methods("GET")
-	a.Router.HandleFunc("/api/v1/product/{id:[0-9]+}", a.updateRestaurant).Methods("PUT")
-	a.Router.HandleFunc("/api/v1/product/{id:[0-9]+}", a.deleteRestaurant).Methods("DELETE")
-
-	a.Router.HandleFunc("/api/v1/product/{restaurant_id:[0-9]+}/comments/new", a.newComment).Methods("GET")
-	a.Router.HandleFunc("/api/v1/product/{restaurant_id:[0-9]+}/comments", a.getComments).Methods("GET")
-	a.Router.HandleFunc("/api/v1/product/{restaurant_id:[0-9]+}/comments/{id:[0-9]+}", a.updateComment).Methods("GET")
-	a.Router.HandleFunc("/api/v1/product/{restaurant_id:[0-9]+}/comments/{id:[0-9]+}", a.deleteComment).Methods("GET")
+	a.Router.HandleFunc("/api/v1/restaurant/new", a.newRestaurant).Methods("POST")
+	a.Router.HandleFunc("/api/v1/restaurants", a.getRestaurants).Methods("GET")
+	a.Router.HandleFunc("/api/v1/restaurant/{id:[0-9]+}", a.getRestaurant).Methods("GET")
+	a.Router.HandleFunc("/api/v1/restaurant/{id:[0-9]+}", a.updateRestaurant).Methods("PUT")
+	a.Router.HandleFunc("/api/v1/restaurant/{id:[0-9]+}", a.deleteRestaurant).Methods("DELETE")
+	a.Router.HandleFunc("/api/v1/restaurant/{restaurant_id:[0-9]+}/comments", a.getComments).Methods("GET")
+	a.Router.HandleFunc("/api/v1/restaurant/{restaurant_id:[0-9]+}/comments/new", a.newComment).Methods("POST")
+	a.Router.HandleFunc("/api/v1/restaurant/{restaurant_id:[0-9]+}/comments/{id:[0-9]+}", a.updateComment).Methods("PUT")
+	a.Router.HandleFunc("/api/v1/restaurant/{restaurant_id:[0-9]+}/comments/{id:[0-9]+}", a.deleteComment).Methods("DELETE")
 }
