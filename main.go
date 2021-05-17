@@ -11,9 +11,9 @@ func main() {
 	a := App{}
 
 	a.Initialize(
-		dotEnvGet("BASICAPI_DB_USERNAME"),
-		dotEnvGet("BASICAPI_DB_PASSWORD"),
-		dotEnvGet("BASICAPI_DB_NAME"))
+		dotEnvGet("DEV_DB_USERNAME"),
+		dotEnvGet("DEV_DB_PASSWORD"),
+		dotEnvGet("DEV_DB_NAME"))
 
 	a.Run(":3005")
 }

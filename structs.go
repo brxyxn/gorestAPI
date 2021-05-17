@@ -18,6 +18,12 @@ type Restaurant struct {
 	Image_url   string `json:"image_url"`
 }
 
+// {
+//     "name":"Restaurant 1"
+//     "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+//     "image_url":"i.imgur.com/d5xgMbP.png"
+// }
+
 // CREATE TABLE public."comments" (
 // 	id bigint NOT NULL GENERATED ALWAYS AS IDENTITY,
 // 	body varchar(250) NULL,
