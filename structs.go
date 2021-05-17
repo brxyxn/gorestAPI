@@ -2,7 +2,7 @@ package main
 
 // Json template: `json:""`
 
-// CREATE TABLE public."comments" (
+// CREATE TABLE public."restaurants" (
 // 	id bigint NOT NULL GENERATED ALWAYS AS IDENTITY,
 // 	body varchar(250) NULL,
 // 	rate int NOT NULL,
