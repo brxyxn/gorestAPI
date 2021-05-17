@@ -1,13 +1,29 @@
 package main
 
-import "os"
+import (
+	"log"
+	"os"
+
+	"github.com/joho/godotenv"
+)
 
 func main() {
 	a := App{}
+
 	a.Initialize(
-		os.Getenv("BASICAPI_DB_USERNAME"), // xisreddd
-		os.Getenv("BASICAPI_DB_PASSWORD"), // c3aGVFPauG2BZZUzM5TiuI42dFYW8tSZ
-		os.Getenv("BASICAPI_DB_NAME"))     // xisreddd
+		dotEnvGet("BASICAPI_DB_USERNAME"),
+		dotEnvGet("BASICAPI_DB_PASSWORD"),
+		dotEnvGet("BASICAPI_DB_NAME"))
 
 	a.Run(":3005")
+}
+
+// Get environment key from .env file
+func dotEnvGet(key string) string {
+	err := godotenv.Load(".env")
+
+	if err != nil {
+		log.Fatalf("Error loading .env file")
+	}
+	return os.Getenv(key)
 }
